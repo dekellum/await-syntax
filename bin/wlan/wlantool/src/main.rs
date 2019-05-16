@@ -39,12 +39,12 @@ fn main() -> Result<(), Error> {
 
     let fut = async {
         match opt {
-            Opt::Phy(cmd) => do_phy(cmd, wlan_svc)¡await,
-            Opt::Iface(cmd) => do_iface(cmd, wlan_svc)¡await,
-            Opt::Client(cmd) => do_client(cmd, wlan_svc)¡await,
-            Opt::Ap(cmd) => do_ap(cmd, wlan_svc)¡await,
-            Opt::Mesh(cmd) => do_mesh(cmd, wlan_svc)¡await,
-        }
+            Opt::Phy(cmd) => do_phy(cmd, wlan_svc),
+            Opt::Iface(cmd) => do_iface(cmd, wlan_svc),
+            Opt::Client(cmd) => do_client(cmd, wlan_svc),
+            Opt::Ap(cmd) => do_ap(cmd, wlan_svc),
+            Opt::Mesh(cmd) => do_mesh(cmd, wlan_svc),
+        }¡await
     };
     exec.run_singlethreaded(fut)
 }
