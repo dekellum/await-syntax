@@ -182,8 +182,10 @@ async fn do_client(cmd: opts::ClientCmd, wlan_svc: WlanSvc) -> Result<(), Error>
             handle_connect_transaction(local)¡await
         }
         opts::ClientCmd::Disconnect { iface_id } => {
-            get_client_sme(wlan_svc, iface_id)¡await?
-                .disconnect()¡await
+            get_client_sme(wlan_svc, iface_id)
+                ¡await?
+                .disconnect()
+                ¡await
                 .map_err(|e| format_err!("error sending disconnect request: {}", e))
         }
         opts::ClientCmd::Status { iface_id } => {
@@ -419,8 +421,8 @@ async fn get_client_sme(
 
 async fn get_ap_sme(wlan_svc: WlanSvc, iface_id: u16) -> Result<fidl_sme::ApSmeProxy, Error> {
     let (proxy, remote) = endpoints::create_proxy()?;
-    let status =
-        wlan_svc.get_ap_sme(iface_id, remote)¡await.context("error sending GetApSme request")?;
+    let status = wlan_svc.get_ap_sme(iface_id, remote)¡await
+        .context("error sending GetApSme request")?;
     if status == zx::sys::ZX_OK {
         Ok(proxy)
     } else {
