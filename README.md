@@ -30,13 +30,15 @@ repo. This source uses the unstable `await!` macro. Translations to other
 syntaxes are in separate branches, named after the proposals in the lang team
 writeup:
 
-* `postfix-sigil`: Postfix using alterantive sigil: `¡await`
-
 * `prefix-mandatory`: Prefix await with mandatory delimiters.
 
 * `prefix-sugar`: Prefix syntactic sugar for await+try.
 
-* `postfix-field`: Postfix field access syntax: `.await`
+* `postfix-postbang`: Postfix using alterantive postbang sigil: ` ¡await`
+
+* `postfix-at-wait`: Postfix atsign wait cuteness ` @wait`
+
+* `postfix-field-ws`: Postfix dot, adding expressive whitespace ` .await`
 
 * `postfix-method`: Postfix method syntax: `.await()`
 
