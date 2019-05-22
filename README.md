@@ -38,7 +38,11 @@ writeup:
 
 * `postfix-at-wait`: Postfix atsign wait cuteness ` @wait`
 
+* `postfix-dot-upcase`: Postfix dot, upcase'd for clarity `.AWAIT`
+
 * `postfix-field-ws`: Postfix dot, adding expressive whitespace ` .await`
+
+* `postfix-field-comment`: Postfix dot, with magic comment `/*magic «*/.await/*»*/`
 
 * `postfix-method`: Postfix method syntax: `.await()`
 
