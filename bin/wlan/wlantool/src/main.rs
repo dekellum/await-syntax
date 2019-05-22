@@ -195,8 +195,7 @@ async fn do_client(cmd: opts::ClientCmd, wlan_svc: WlanSvc) -> Result<(), Error>
                 .map_err(|e| format_err!("error sending disconnect request: {}", e))
         }
         opts::ClientCmd::Status { iface_id } => {
-            let st = get_client_sme(wlan_svc, iface_id).AWAIT?
-                .status().AWAIT?;
+            let st = get_client_sme(wlan_svc, iface_id).AWAIT?.status().AWAIT?;
             match st.connected_to {
                 Some(bss) => {
                     println!(
@@ -241,8 +240,7 @@ async fn do_ap(cmd: opts::ApCmd, wlan_svc: WlanSvc) -> Result<(), Error> {
             }
         }
         opts::ApCmd::Stop { iface_id } => {
-            let r = get_ap_sme(wlan_svc, iface_id).AWAIT?
-                .stop().AWAIT;
+            let r = get_ap_sme(wlan_svc, iface_id).AWAIT?.stop().AWAIT;
             println!("{:?}", r);
         }
     }
@@ -271,8 +269,7 @@ async fn do_mesh(cmd: opts::MeshCmd, wlan_svc: WlanSvc) -> Result<(), Error> {
             }
         }
         opts::MeshCmd::Leave { iface_id } => {
-            let r = get_mesh_sme(wlan_svc, iface_id).AWAIT?
-                .leave().AWAIT;
+            let r = get_mesh_sme(wlan_svc, iface_id).AWAIT?.leave().AWAIT;
             println!("{:?}", r);
         }
     }
